@@ -1,0 +1,20 @@
+{
+  "name": "gipp-back",
+  "version": "1.0.0",
+  "description": "Backend for the GIPP system",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js"
+  },
+  "keywords": [
+    "incidentes",
+    "reportes",
+    "gestion"
+  ],
+  "author": "Jose Gomez",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1",
+    "mysql": "^2.17.1"
+  }
+}
