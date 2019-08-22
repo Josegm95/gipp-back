@@ -6,8 +6,8 @@ UserModel.getAll = callback => {
   connection.query('SELECT * FROM users', callback);
 };
 
-UserModel.getUser = (userId, callback) => {
-  connection.query('SELECT * FROM users WHERE id = ?', userId, callback);
+UserModel.getUser = (email, callback) => {
+  connection.query('SELECT * FROM users WHERE email = ?', email, callback);
 }
 
 module.exports = UserModel;

@@ -16,14 +16,19 @@ UserController.getAll = (req, res) => {
 };
 
 UserController.login = (req, res) => {
-  UserModel.getUser(req.body.id, (err, rows) => {
+  UserModel.getUser(req.body.email, (err, rows) => {
     if (err) {
       res.json({
         message: 'Database error, user not exist',
         err
       });
     } else {
-      res.json(rows);
+      if (req.body.password === rows[0].password) {
+        res.json({
+          message: 'login succes',
+          user: rows[0]
+        });
+      }
     }
   });
 };
