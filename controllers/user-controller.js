@@ -19,14 +19,19 @@ UserController.login = (req, res) => {
   UserModel.getUser(req.body.email, (err, rows) => {
     if (err) {
       res.json({
-        message: 'Database error, user not exist',
+        message: 'El usuario no existe',
         err
       });
     } else {
       if (req.body.password === rows[0].password) {
         res.json({
-          message: 'login succes',
-          user: rows[0]
+          message: 'Ingreso exitoso',
+          data: rows[0]
+        });
+      } else {
+        res.json({
+          message: 'Contraseña o email incorrecta',
+          err: 'incorrects credentials'
         });
       }
     }
