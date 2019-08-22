@@ -7,7 +7,7 @@ const app = express();
 app.set('port', process.env.PORT || 3000);
 
 app.use(cors({
-  origin: 'http://localhost:4200'
+  origin: '*'
 }));
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
