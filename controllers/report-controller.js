@@ -71,6 +71,26 @@ ReportController.responsibleReports = (req, res) => {
   });
 };
 
+ReportController.investigatorReports = (req, res) => {
+  ReportModel.investigatorReports(req.params.userId, (err, rows) => {
+    if (err) {
+      res.json({
+        message: 'Error accediendo a los reportes del usuario',
+        err
+      });
+    } else if (rows.length > 0) {
+      res.json({
+        message: 'Busqueda realizada con exito',
+        data: rows
+      });
+    } else {
+      res.json({
+        message: 'El usuario no tiene reportes'
+      });
+    }
+  });
+};
+
 ReportController.update = (req, res) => {
   ReportModel.update(req.body, req.body.reportid, err => {
     if (err) {

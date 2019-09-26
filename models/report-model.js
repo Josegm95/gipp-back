@@ -18,6 +18,14 @@ ReportModel.responsibleReports = (userId, callback) => {
   );
 };
 
+ReportModel.investigatorReports = (userId, callback) => {
+  connection.query(
+    'SELECT * FROM reports WHERE investigatorid = ?',
+    userId,
+    callback
+  );
+};
+
 ReportModel.update = (report, reportid, callback) => {
   connection.query(
     'UPDATE reports SET ? WHERE reportid = ?',

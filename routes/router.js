@@ -14,6 +14,7 @@ router.get('/reports', ReportController.getAll);
 router.get('/userReports/:userId', ReportController.userReports);
 router.post('/addReport', ReportController.addReport);
 router.get('/responsibleReports/:userId', ReportController.responsibleReports);
+router.get('/investigatorReports/:userId', ReportController.investigatorReports);
 router.put('/editReport', ReportController.update);
 
 router.get('*', (req, res) => {
